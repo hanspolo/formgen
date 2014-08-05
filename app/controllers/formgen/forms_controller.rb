@@ -10,7 +10,7 @@ module Formgen
     before_action :find_form_with_answers, only: [:show, :send_mail, :export]
 
     def index
-      tabulatr_for Formgen::Form
+      tabulatr_for current_user.filter_by_context(Formgen::Form.eager_load(:context_tags))
     end
 
     def show
@@ -71,9 +71,10 @@ module Formgen
     end
 
     def form_params
-      params.require(:form).permit :title, :path, :email, questions_attributes:
-                                    [:id, :value, :language, :mandatory,
-                                     :question_type, :_destroy]
+      params.require(:form).permit :title, :path, :email, context_tag_ids: [],
+                                    questions_attributes:
+                                      [:id, :value, :language, :mandatory,
+                                       :question_type, :_destroy]
     end
   end
 end

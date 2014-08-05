@@ -17,5 +17,8 @@ module Formgen
     column :answers, table_column_options: { sortable: false, filter: false } do |record|
       record.replies.count.to_s
     end
+    column :context_tags, table_column_options: { filter: false, sortable: false } do |f|
+      f.context_tags.map(&:name).join(' & ')
+    end
   end
 end
