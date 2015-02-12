@@ -8,13 +8,13 @@
   - elsif Formgen::Question::TYPES[question.question_type] == 'date'
     = label_tag question.field_name, question.value, class: classes
     .input-group.date
-      = date_field_tag question.field_name, value, class: 'form-control'
+      = text_field_tag question.field_name, value, class: 'form-control'
       span.input-group-addon
         = fa_icon('calendar')
   - elsif Formgen::Question::TYPES[question.question_type] == 'datetime'
     = label_tag question.field_name, question.value, class: classes
     .input-group.datetime
-      = datetime_field_tag question.field_name, value, class: 'form-control'
+      = text_field_tag question.field_name, value, class: 'form-control'
       span.input-group-addon
         = fa_icon('calendar')
   - elsif Formgen::Question::TYPES[question.question_type] == 'description'
