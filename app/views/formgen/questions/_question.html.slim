@@ -1,4 +1,5 @@
-- value = reply.answers.find_by(question: question).value if options[:remember] && reply
+- existing_answer = reply.answers.find_by(question: question) if reply.present?
+- value = existing_answer.value if options[:remember] && reply && existing_answer
 - classes = question.mandatory ? 'mandatory' : ''
 
 .form-group
