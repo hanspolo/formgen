@@ -23,5 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'font-awesome-rails', '>= 4.1'
   s.add_dependency 'tabulatr2', '~> 0.9'
 
+  s.add_development_dependency 'codeclimate-test-reporter'
   s.add_development_dependency 'sqlite3'
 end
